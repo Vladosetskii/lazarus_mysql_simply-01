@@ -1,0 +1,174 @@
+object Form1: TForm1
+  Left = 290
+  Height = 562
+  Top = 175
+  Width = 725
+  Caption = 'БД sampdb'
+  ClientHeight = 560
+  ClientWidth = 725
+  LCLVersion = '0.9.28.2'
+  object Button1: TButton
+    Left = 8
+    Height = 25
+    Top = 520
+    Width = 75
+    Caption = 'Connect...'
+    OnClick = Button1Click
+    TabOrder = 0
+  end
+  object PageControl1: TPageControl
+    Left = 8
+    Height = 432
+    Top = 8
+    Width = 704
+    ActivePage = TabSheet2
+    TabIndex = 1
+    TabOrder = 1
+    object TabSheet1: TTabSheet
+      Caption = 'Таблица'
+      ClientHeight = 406
+      ClientWidth = 696
+      object Label1: TLabel
+        Left = 20
+        Height = 14
+        Top = 290
+        Width = 70
+        Caption = 'SQL-запрос...'
+        ParentColor = False
+      end
+      object DBGrid1: TDBGrid
+        Left = 12
+        Height = 256
+        Top = 18
+        Width = 664
+        DataSource = Datasource1
+        TabOrder = 0
+      end
+      object Memo1: TMemo
+        Left = 100
+        Height = 96
+        Top = 290
+        Width = 280
+        TabOrder = 1
+      end
+      object Button2: TButton
+        Left = 12
+        Height = 25
+        Top = 361
+        Width = 83
+        Caption = 'Выполнить...'
+        OnClick = Button2Click
+        TabOrder = 2
+      end
+      object Memo2: TMemo
+        Left = 396
+        Height = 96
+        Top = 290
+        Width = 280
+        TabOrder = 3
+      end
+    end
+    object TabSheet2: TTabSheet
+      Caption = 'Студенты'
+      ClientHeight = 406
+      ClientWidth = 696
+      object Label2: TLabel
+        Left = 12
+        Height = 14
+        Top = 17
+        Width = 146
+        Caption = 'Идентификационный номер:'
+        ParentColor = False
+      end
+      object Label3: TLabel
+        Left = 12
+        Height = 14
+        Top = 82
+        Width = 24
+        Caption = 'Имя:'
+        ParentColor = False
+      end
+      object DBEdit1: TDBEdit
+        Left = 188
+        Height = 21
+        Top = 17
+        Width = 80
+        DataSource = Datasource1
+        TabOrder = 0
+      end
+      object Button3: TButton
+        Left = 12
+        Height = 25
+        Top = 362
+        Width = 128
+        Caption = 'Запрос: Студенты'
+        OnClick = Button3Click
+        TabOrder = 1
+      end
+      object DBEdit2: TDBEdit
+        Left = 78
+        Height = 21
+        Top = 82
+        Width = 190
+        DataSource = Datasource1
+        TabOrder = 2
+      end
+    end
+    object TabSheet3: TTabSheet
+      Caption = 'Прогулы'
+      ClientHeight = 406
+      ClientWidth = 696
+      object Button5: TButton
+        Left = 20
+        Height = 25
+        Top = 369
+        Width = 128
+        Caption = 'Запрос: Прогулы'
+        TabOrder = 0
+      end
+    end
+  end
+  object DBNavigator1: TDBNavigator
+    Left = 8
+    Height = 25
+    Top = 472
+    Width = 241
+    BevelOuter = bvNone
+    ClientHeight = 25
+    ClientWidth = 241
+    DataSource = Datasource1
+    TabOrder = 2
+  end
+  object MySQL50Connection1: TMySQL50Connection
+    Connected = False
+    LoginPrompt = False
+    DatabaseName = 'sampdb'
+    KeepConnection = False
+    Transaction = SQLTransaction1
+    left = 328
+    top = 448
+  end
+  object SQLTransaction1: TSQLTransaction
+    Active = False
+    Action = caNone
+    Database = MySQL50Connection1
+    left = 328
+    top = 512
+  end
+  object SQLQuery1: TSQLQuery
+    IndexName = 'DEFAULT_ORDER'
+    AutoCalcFields = False
+    Database = MySQL50Connection1
+    Transaction = SQLTransaction1
+    ReadOnly = False
+    Params = <>
+    UpdateMode = upWhereKeyOnly
+    left = 656
+    top = 448
+  end
+  object Datasource1: TDatasource
+    DataSet = SQLQuery1
+    left = 656
+    top = 512
+  end
+end
