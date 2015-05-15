@@ -125,7 +125,7 @@ begin
    DBEdit1.DataField := 'student_id';
    DBEdit2.DataField := 'name';
   except
-   ShowMessage(' Ошибка при выполнении SQL запроса.');
+   ShowMessage(' Ошибка при выполнении SQL запроса!!!');
    exit;
  end;
 end;
